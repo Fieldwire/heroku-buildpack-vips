@@ -44,11 +44,6 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-echo "=============================="
-echo " libvips.so location"
-echo "=============================="
-find $output_dir -name libvips.so
-
 mkdir -p $BUILD_DIR/bin/
 cp -r $output_dir/vips/bin/* $BUILD_DIR/bin/
 
