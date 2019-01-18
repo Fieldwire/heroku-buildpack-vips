@@ -33,7 +33,7 @@ echo "Downloading libvips and unpacking" | indent
 
 VIPS_VERSION=8.7.0
 
-VIPS_BIN_URL="https://s3.amazonaws.com/nicolas-fw-development/vips/vips_output_"$VIPS_VERSION".tar.gz"
+VIPS_BIN_URL="https://s3.amazonaws.com/fieldwire-heroku/vips_output_"$VIPS_VERSION".tar.gz"
 echo "Downloading : "$VIPS_BIN_URL
 curl -s $VIPS_BIN_URL | tar xz -C $output_dir
 
@@ -48,6 +48,9 @@ if [ $? != 0 ]; then
   echo "Error downloading vips and unpacking to app dir" | indent
   exit 1
 fi
+
+rm -f $output_dir/lib/*.la $output_dir/lib/*.a $temp_app_dir/lib/*.la $temp_app_dir/lib/*.a
+rm -Rf $output_dir/share $temp_app_dir/share
 
 mkdir -p $BUILD_DIR/bin/
 cp -r $output_dir/bin/* $BUILD_DIR/bin/
