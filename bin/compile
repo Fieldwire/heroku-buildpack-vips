@@ -34,7 +34,6 @@ echo "Downloading libvips and unpacking" | indent
 VIPS_VERSION=8.7.0
 
 VIPS_BIN_URL="https://s3.amazonaws.com/fieldwire-heroku/vips_output_"$VIPS_VERSION".tar.gz"
-VIPS_BIN_URL="https://s3.amazonaws.com/nicolas-fw-development/vips/vips_output_8.7.0.tar.gz"
 
 echo "Downloading : "$VIPS_BIN_URL
 curl -s $VIPS_BIN_URL | tar xz -C $output_dir
